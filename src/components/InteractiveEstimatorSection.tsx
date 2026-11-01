@@ -198,7 +198,7 @@ export default function InteractiveEstimatorSection() {
             Sheet & Core <span className="heading-accent font-extrabold">Estimator</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-white/70 font-light leading-relaxed">
-            Configure your project dimensions and requirements in seconds. Get an instant sheet count, grade recommendation, and prefilled direct WhatsApp quote.
+            Configure your project dimensions and requirements in seconds. Get an instant sheet count, grade recommendation, and prefilled direct WhatsApp estimate.
           </p>
         </div>
 
@@ -390,13 +390,13 @@ export default function InteractiveEstimatorSection() {
               </p>
             </div>
 
-            {/* WhatsApp Quote Trigger */}
+            {/* WhatsApp Estimate Trigger */}
             <button
               onClick={handleWhatsAppQuote}
               className="w-full py-4 rounded-full bg-[#121212] hover:bg-[#02475E] text-white text-center text-xs uppercase font-bold tracking-wider flex items-center justify-center gap-2 shadow-xl transition-all"
             >
               <MessageSquare className="w-4 h-4 text-[#F1A80A]" />
-              <span>Get WhatsApp Quote for This Spec</span>
+              <span>Get WhatsApp Estimate for This Spec</span>
             </button>
 
             <span className="text-[10px] text-center text-stone-500 block mt-3">

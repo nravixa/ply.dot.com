@@ -395,16 +395,6 @@ export default function Header() {
             >
               <Phone className="w-4 h-4" />
             </a>
-
-            {/* Action Pill: Get Quote */}
-            <Link
-              href="/#quote"
-              onClick={(e) => handleNavClick(e, "quote", "/#quote")}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-900 hover:bg-[#F1A80A] text-white hover:text-slate-950 dark:bg-white dark:hover:bg-[#F1A80A] dark:text-[#121212] dark:hover:text-slate-950 text-xs font-bold uppercase tracking-wider shadow-md transition-all hover:scale-105"
-            >
-              <span>Get Quote</span>
-              <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
-            </Link>
           </div>
 
           {/* Redesigned Mobile View Header Action Cluster (Sleek, Uncluttered, High-End) */}
@@ -628,26 +618,15 @@ export default function Header() {
 
         {/* Bottom Fixed Action Dock inside Mobile Drawer */}
         <div className="flex-shrink-0 p-5 sm:px-6 bg-[#0c1012] border-t border-white/10 space-y-3">
-          <div className="grid grid-cols-2 gap-2.5">
-            <Link
-              href="/#quote"
-              onClick={(e) => handleNavClick(e, "quote", "/#quote")}
-              className="py-3 px-4 rounded-xl bg-white text-[#121212] font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg active:scale-95 transition-all"
-            >
-              <span>Get Quote</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-
-            <a
-              href="https://wa.me/9108087962121?text=Hello%20Ply%20Dot%20Com%2C%20I%20would%20like%20to%20send%20an%20enquiry."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 active:scale-95 transition-all"
-            >
-              <MessageSquare className="w-3.5 h-3.5 text-[#5BB1CD]" />
-              <span>WhatsApp</span>
-            </a>
-          </div>
+          <a
+            href="https://wa.me/9108087962121?text=Hello%20Ply%20Dot%20Com%2C%20I%20would%20like%20to%20send%20an%20enquiry."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-[#5BB1CD]" />
+            <span>WhatsApp Concierge</span>
+          </a>
 
           <div className="flex items-center justify-between text-[11px] font-sans text-white/50 pt-1">
             <a
@@ -661,28 +640,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-      {/* Secondary Left Side Floating Navigation Tab: Quick Architectural Quote */}
-      <aside
-        aria-label="Secondary Left Navigation"
-        className="fixed left-0 top-1/2 -translate-y-1/2 z-30 select-none"
-      >
-        <Link
-          href="/#quote"
-          onClick={(e) => handleNavClick(e, "quote", "/#quote")}
-          className="group relative flex items-center gap-2 py-3.5 px-2 sm:px-2.5 bg-white/95 text-slate-900 hover:bg-white border-y border-r border-black/10 shadow-[0_15px_35px_rgba(0,0,0,0.12)] hover:border-[#F1A80A] dark:bg-[#121619]/90 dark:text-white dark:hover:bg-black dark:border-white/20 dark:hover:border-[#F1A80A]/80 backdrop-blur-2xl rounded-r-xl sm:rounded-r-2xl transition-all duration-300 hover:pl-3.5 cursor-pointer"
-          style={{ writingMode: "vertical-rl" }}
-          title="Request Architectural Quote"
-        >
-          <div className="flex items-center gap-2 rotate-180">
-            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#F1A80A] shadow-[0_0_8px_#F1A80A] animate-pulse" />
-            <span className="font-sans text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.22em] text-slate-900 dark:text-white group-hover:text-[#F1A80A] transition-colors">
-              GET QUOTE
-            </span>
-            <ArrowUpRight className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 text-slate-600 dark:text-white/70 group-hover:text-slate-950 dark:group-hover:text-white transition-transform group-hover:scale-110" />
-          </div>
-        </Link>
-      </aside>
     </>
   );
 }
