@@ -1,0 +1,8 @@
+Contact: mailto:security@plydotcom.in
+Contact: https://plydotcom.in/contact
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://plydotcom.in/.well-known/security.txt
+Policy: https://plydotcom.in/security-policy
+Hiring: https://plydotcom.in/about
+Acknowledgments: https://plydotcom.in/about

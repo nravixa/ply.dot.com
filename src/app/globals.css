@@ -1,0 +1,460 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-mono: var(--font-sans);
+}
+
+.font-mono,
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+:root {
+  --petrol: #02475E;
+  --petrol-deep: #012b39;
+  --amber: #F1A80A;
+  --amber-light: #ffd269;
+  --ivory: #F5EBE1;
+  --ivory-dim: #d8cec4;
+  --sky: #5BB1CD;
+  --sky-glow: rgba(91, 177, 205, 0.25);
+  --obsidian: #121212;
+  --obsidian-surface: #181d1f;
+  --obsidian-card: #151a1c;
+}
+
+:root, html.light {
+  --petrol: #02475E;
+  --petrol-deep: #012b39;
+  --amber: #F1A80A;
+  --amber-light: #ffd269;
+  --ivory: #F5EBE1;
+  --ivory-dim: #d8cec4;
+  --sky: #5BB1CD;
+  --sky-glow: rgba(91, 177, 205, 0.25);
+  --obsidian: #121212;
+  --obsidian-surface: #181d1f;
+  --obsidian-card: #151a1c;
+
+  /* TRUE Luminous Light Theme (Clean Scandinavian Architectural Silver-Mist) */
+  --bg-page: #edf2f6;
+  --bg-section: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --ambient-bg-color: #e5ebf0;
+  --ambient-bg-image: 
+    radial-gradient(at 10% 15%, rgba(91, 177, 205, 0.22) 0%, transparent 60%),
+    radial-gradient(at 85% 20%, rgba(241, 168, 10, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 50% 85%, rgba(2, 71, 94, 0.12) 0%, transparent 65%);
+  --glass-surface: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.94);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.07), 0 0 1px rgba(0, 0, 0, 0.1);
+  color-scheme: light;
+}
+
+/* Dark Mode Theme (Obsidian Architectural Luxury) */
+html.dark {
+  --petrol: #02475E;
+  --petrol-deep: #012b39;
+  --amber: #F1A80A;
+  --amber-light: #ffd269;
+  --ivory: #F5EBE1;
+  --ivory-dim: #d8cec4;
+  --sky: #5BB1CD;
+  --sky-glow: rgba(91, 177, 205, 0.25);
+  --obsidian: #121212;
+  --obsidian-surface: #181d1f;
+  --obsidian-card: #151a1c;
+
+  --bg-page: #0b0e10;
+  --bg-section: #0c1012;
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --ambient-bg-color: #0c1012;
+  --ambient-bg-image: 
+    radial-gradient(at 10% 20%, rgba(2, 71, 94, 0.45) 0%, transparent 55%),
+    radial-gradient(at 85% 25%, rgba(91, 177, 205, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 50% 85%, rgba(2, 71, 94, 0.35) 0%, transparent 65%),
+    radial-gradient(circle at 65% 50%, rgba(241, 168, 10, 0.08) 0%, transparent 45%);
+  --glass-surface: rgba(18, 22, 26, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --card-bg: rgba(21, 26, 29, 0.9);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color-scheme: dark;
+}
+
+/* Base resets & typography */
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Ambient Architectural Dusk Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120vw;
+  height: 120vh;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--ambient-bg-color);
+  background-image: var(--ambient-bg-image);
+  background-size: cover;
+  animation: 25s ease-in-out infinite alternate pulseBg;
+  transition: background-color 0.5s ease;
+}
+
+@keyframes pulseBg {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.03) translate(-1%, 1%);
+  }
+  100% {
+    transform: scale(1.01) translate(1%, -1%);
+  }
+}
+
+/* Ambient Grain Canvas */
+.ambient-noise {
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Modern Minimalist Glassmorphism (Inspired by Reference Design) */
+.morden-frame {
+  border-radius: 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8), 0 0 50px rgba(2, 71, 94, 0.2);
+}
+
+.morden-card-dark {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--card-border) !important;
+  box-shadow: var(--card-shadow);
+  color: var(--text-main);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.morden-card-dark:hover {
+  border-color: rgba(241, 168, 10, 0.5) !important;
+  transform: translateY(-4px);
+}
+
+/* Light Mode Typography & Color Cascades */
+html.light h1:not(#home h1),
+html.light h2,
+html.light h3,
+html.light h4 {
+  color: #0f172a !important;
+}
+
+html.light p {
+  color: #475569;
+}
+
+/* Swatch tile dark overlay typography (must always maintain luminous legibility against dark scrim) */
+.swatch-label h3,
+html.light .swatch-label h3 {
+  color: #ffffff !important;
+}
+
+.group:hover .swatch-label h3,
+html.light .group:hover .swatch-label h3,
+.swatch-label h3:hover,
+html.light .swatch-label h3:hover {
+  color: #F1A80A !important;
+}
+
+.swatch-label p,
+html.light .swatch-label p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html.light .section-seam {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%) !important;
+}
+
+/* Light mode card internals */
+html.light .morden-card-dark h3,
+html.light .morden-card-dark h4 {
+  color: #0f172a !important;
+}
+
+html.light .morden-card-dark p {
+  color: #475569 !important;
+}
+
+html.light .morden-card-dark [class*="bg-black/40"],
+html.light .morden-card-dark [class*="bg-black/60"] {
+  background-color: rgba(238, 242, 246, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  color: #0f172a !important;
+}
+
+html.light .morden-card-dark [class*="bg-black/40"] span,
+html.light .morden-card-dark [class*="bg-black/60"] span {
+  color: #0f172a !important;
+}
+
+html.light .morden-card-dark [class*="bg-black/40"] span[class*="tracking-wider"],
+html.light .morden-card-dark [class*="bg-black/60"] span[class*="tracking-wider"] {
+  color: #02475E !important;
+}
+
+html.light .morden-card-dark [class*="bg-white/[0.04]"],
+html.light .morden-card-dark [class*="bg-white/[0.06]"],
+html.light .morden-card-dark [class*="bg-white/[0.08]"],
+html.light .morden-card-dark [class*="bg-white/10"] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  color: #0f172a !important;
+}
+
+html.light .morden-card-dark input,
+html.light .morden-card-dark select,
+html.light .morden-card-dark textarea {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #0f172a !important;
+}
+
+html.light .morden-card-dark input::placeholder,
+html.light .morden-card-dark textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Light Mode Header & Navigation: Tailwind handles light and dark variants cleanly */
+
+/* Light Mode Footer Sub-bar Legibility */
+html.light footer {
+  color: #334155;
+}
+
+/* Pristine Pure White Contrast Cards (Exact Match to Reference Image bottom right) */
+.morden-card-white {
+  background: #ffffff;
+  color: #111827;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.45), 0 10px 25px -5px rgba(0, 0, 0, 0.18);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.morden-card-white:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.6), 0 15px 30px -5px rgba(241, 168, 10, 0.25);
+}
+
+/* Reference Style Peach / Orange Mini Stat Badges */
+.morden-badge-peach {
+  background: #fff0eb;
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  letter-spacing: -0.01em;
+}
+
+/* Minimal Modern Section Divider Line */
+.section-seam {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.14) 50%, transparent 100%);
+}
+
+/* Modern Pill Navigation Styles */
+.morden-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.morden-pill:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.morden-pill-active {
+  background: #ffffff;
+  color: #121212 !important;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Glass panel & buttons */
+.glass-panel {
+  background: rgba(18, 23, 26, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06) !important;
+  color: #0f172a !important;
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.3s ease;
+}
+
+html.light .glass-pill {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #475569 !important;
+}
+
+.glass-pill:hover {
+  background: rgba(241, 168, 10, 0.2);
+  border-color: rgba(241, 168, 10, 0.6);
+  color: var(--amber);
+}
+
+html.light .glass-pill:hover {
+  background: rgba(241, 168, 10, 0.15) !important;
+  border-color: #F1A80A !important;
+  color: #0f172a !important;
+}
+
+/* Gold button */
+.gold-badge {
+  background: linear-gradient(135deg, #F1A80A 0%, #E09405 50%, #B87302 100%);
+  color: #121212 !important;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 8px 24px rgba(241, 168, 10, 0.35);
+  transition: all 0.3s ease;
+}
+
+.gold-badge:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 12px 30px rgba(241, 168, 10, 0.5);
+}
+
+/* Gold Metallic Foil Styling */
+.gold-foil-text {
+  background: linear-gradient(135deg, #FFF6E5 0%, #F1A80A 40%, #ffd269 60%, #D88B04 80%, #FFE2A4 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  animation: 8s linear infinite shine;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* Architectural Heading Accent (Unified typography with radiant champagne-amber metallic finish) */
+.heading-accent {
+  background: linear-gradient(135deg, #FDE68A 0%, #F1A80A 50%, #D97706 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  padding-right: 0.05em;
+  overflow: visible;
+  font-family: inherit;
+}
+
+html.light .heading-accent {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 60%, #92400E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c1012;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #02475E;
+  border-radius: 9999px;
+  border: 2px solid #0c1012;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F1A80A;
+}

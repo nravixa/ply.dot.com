@@ -1,0 +1,6 @@
+# Robots.txt for Ply Dot Com (Sus, Pune)
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://plydotcom.in/sitemap.xml
